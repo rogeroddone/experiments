@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Carolina Oddone — Roteirista · Produtora · Pesquisadora</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --cream: #F0EBE1;
+    --cream-dark: #E5DDD0;
+    --ink: #1A1916;
+    --ink-mid: #4A4840;
+    --ink-light: #888880;
+    --gold: #C8B882;
+    --gold-light: #E8D9A8;
+    --white: #FAF8F4;
+    --grid: #C8B88218;
+    --site-width: 60vw;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html {
+    overscroll-behavior: none;
+    touch-action: pan-y;
+  }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: clip;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 201;
+    background: transparent;
+    border-bottom: 0.5px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .nav-inner {
+    max-width: 60vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+  }
+  nav.scrolled {
+    border-bottom-color: #C8B88240;
+    background: #F0EBE1F0;
+    backdrop-filter: blur(8px);
+  }
+  nav.scrolled .nav-logo { color: var(--ink); }
+  nav.scrolled .nav-links a { color: var(--ink-light); }
+  nav.scrolled .nav-links a:hover { color: var(--ink); }
+  .nav-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    color: #F0EBE1;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-logo span {
+    display: block;
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 1px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,235,225,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #F0EBE1; }
+  .nav-lang-divider {
+    width: 0.5px;
+    height: 14px;
+    background: rgba(200,184,130,0.3);
+    align-self: center;
+  }
+  .nav-lang-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-lang {
+    font-size: 10px !important;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(240,235,225,0.4) !important;
+    text-decoration: none;
+    transition: color 0.2s;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+  .nav-lang.active {
+    color: var(--gold) !important;
+    border-bottom: 1px solid var(--gold) !important;
+    padding-bottom: 1px !important;
+  }
+  .nav-lang:hover { color: rgba(240,235,225,0.75) !important; }
+  .nav-lang-dot {
+    font-size: 10px;
+    color: rgba(200,184,130,0.3);
+    line-height: 1;
+  }
+  nav.scrolled .nav-lang { color: rgba(74,72,64,0.45) !important; }
+  nav.scrolled .nav-lang.active { color: var(--ink-mid) !important; border-bottom-color: var(--ink-mid) !important; }
+  nav.scrolled .nav-lang:hover { color: var(--ink) !important; }
+  nav.scrolled .nav-lang-dot { color: rgba(74,72,64,0.3); }
+  nav.scrolled .nav-lang-divider { background: rgba(74,72,64,0.2); }
+  .nav-contact-cta {
+    border: 0.5px solid var(--gold) !important;
+    padding: 5px 14px !important;
+    opacity: 1 !important;
+    color: var(--ink) !important;
+    background: var(--gold) !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-contact-cta:hover { opacity: 0.85 !important; }
+  nav.scrolled .nav-contact-cta {
+    border-color: var(--gold) !important;
+    color: var(--ink) !important;
+    background: var(--gold) !important;
+  }
+
+  /* SECTIONS */
+  section { position: relative; z-index: 1; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+  #hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://ik.imagekit.io/rfi7kdlxzn/unnamed.jpg');
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+  }
+  #hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,9,7,0.72) 0%, rgba(10,9,7,0.2) 60%, rgba(10,9,7,0.1) 100%);
+    z-index: 1;
+  }
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    width: 60vw;
+    margin: 0 auto;
+    flex: none;
+  }
+  .hero-eyebrow {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 28px;
+  }
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #F0EBE1;
+    margin-bottom: 36px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(240,235,225,0.75);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+  .hero-cta {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #F0EBE1;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-cta:hover { color: var(--gold); }
+
+  /* SECTION COMMON */
+  .section-wrap {
+    padding: 100px 0;
+    max-width: 60vw;
+    margin: 0 auto;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    margin-bottom: 64px;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #C8B88240;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .section-num {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 500;
+    position: relative;
+    top: -22px;
+    margin-left: 8px;
+    line-height: 0;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    max-width: 600px;
+    margin-bottom: 64px;
+  }
+
+  /* CASES */
+  .cases { display: flex; flex-direction: column; gap: 80px; }
+  .case {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .case-media { position: relative; }
+  .case-video-wrap {
+    position: relative;
+    background: var(--ink);
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .case-video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+  .case-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--gold);
+    padding: 4px 12px;
+    margin-bottom: 16px;
+  }
+  .case-client {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .case-body {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .case-link {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .case-link:hover { color: var(--gold); }
+
+  /* PRODUCAO dark section */
+  #producao { background: var(--ink); }
+  #producao .section-title { color: var(--cream); }
+  #producao .section-num { color: var(--gold); }
+  #producao .section-header { border-bottom-color: #ffffff10; }
+  #producao .section-desc { color: #888880; }
+  #producao .case-client { color: #666; }
+  #producao .case-title { color: var(--cream); }
+  #producao .case-body { color: #888880; }
+  #producao .case-tag { color: var(--gold); border-color: var(--gold); }
+  #producao .case-link { color: #666; border-bottom-color: var(--gold); }
+  #producao .case-link:hover { color: var(--gold); }
+
+  /* PESQUISA */
+  .pesquisa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+  .pesquisa-card {
+    background: var(--white);
+    border: 0.5px solid #C8B88240;
+  }
+  .pesquisa-card-body { padding: 24px; }
+  .pesquisa-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .pesquisa-card-text {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  /* SOBRE */
+  #sobre { background: var(--cream-dark); }
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .sobre-bio { font-size: 15px; color: var(--ink-mid); line-height: 1.9; }
+  .sobre-bio a, .case-body a, .pesquisa-card-body a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(74,72,64,0.8);
+  }
+  .sobre-bio a:hover, .case-body a:hover, .pesquisa-card-body a:hover {
+    text-decoration-color: rgba(74,72,64,0.8);
+  }
+  .sobre-bio p { margin-bottom: 20px; }
+  .sobre-awards { margin-top: 48px; }
+  .sobre-awards-title {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .award-row { padding: 16px 0; border-bottom: 0.5px solid #C8B88230; }
+  .award-year { font-size: 10px; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 4px; }
+  .award-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .award-project { font-size: 12px; color: var(--ink-light); }
+  .sobre-right { }
+  .sobre-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+  .sobre-photo {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    background: var(--cream);
+  }
+  .sobre-photo:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+  .contact-block { padding-top: 24px; border-top: 0.5px solid #C8B88240; }
+  .contact-label {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .contact-email:hover { color: var(--gold); }
+
+  /* SERVICES */
+  .services-wrap { padding: 100px 0; max-width: 60vw; margin: 0 auto; }
+  .services-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 48px;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid #C8B88240;
+  }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .service-card {
+    padding: 40px 40px 48px;
+    background: #EDE6D9;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-radius: 2px;
+  }
+  .service-icon { width: 36px; height: 36px; margin-bottom: 28px; color: var(--gold); }
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .service-body { font-size: 14px; color: var(--ink-mid); line-height: 1.8; }
+
+  @media (max-width: 768px) {
+    .services-wrap { max-width: 100%; padding: 60px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  .divider { width: 100%; height: 0.5px; background: #C8B88240; position: relative; z-index: 1; }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink);
+  }
+  .footer-name { font-size: 11px; letter-spacing: 0.1em; color: #444; }
+  .footer-copy { font-size: 10px; color: #444; letter-spacing: 0.06em; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+
+  /* HAMBURGER BUTTON */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 202;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    height: 1px;
+    background: #F0EBE1;
+    width: 20px;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: rotate(-45deg) translateY(6px);
+  }
+  .nav-hamburger.open span:nth-child(2) { display: none; }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: rotate(45deg) translateY(-6px);
+  }
+  nav.scrolled .nav-hamburger span { background: var(--ink); }
+
+  /* MOBILE MENU OVERLAY */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: #1a1814;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 32px 48px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .nav-mobile-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  .nav-mobile-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    margin-bottom: 48px;
+  }
+  .nav-mobile-links li {
+    border-bottom: 0.5px solid rgba(200,184,130,0.12);
+  }
+  .nav-mobile-links li:first-child {
+    border-top: 0.5px solid rgba(200,184,130,0.12);
+  }
+  .nav-mobile-links a {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(240,235,225,0.75);
+    text-decoration: none;
+    padding: 20px 0;
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .nav-mobile-links a:hover { color: #F0EBE1; padding-left: 8px; }
+  .nav-mobile-contact {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--gold);
+    padding: 12px 24px;
+    margin-bottom: 40px;
+    transition: opacity 0.2s;
+  }
+  .nav-mobile-contact:hover { opacity: 0.85; }
+  .nav-mobile-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-mobile-lang a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(240,235,225,0.4);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-mobile-lang a.active { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+  .nav-mobile-lang span { font-size: 10px; color: rgba(200,184,130,0.3); }
+
+  /* RESPONSIVE */
+  @media screen and (max-width: 1600px) {
+    .nav-inner    { max-width: 90vw; }
+    .section-wrap { max-width: 90vw; padding: 80px 0; }
+    .services-wrap{ max-width: 90vw; }
+    .hero-left    { width: 90vw; }
+  }
+  @media screen and (max-width: 768px) {
+    .nav-inner    { max-width: 100%; padding: 16px 20px; }
+    .section-wrap { max-width: 100%; padding: 60px 20px; }
+    .services-wrap{ max-width: 100%; padding: 60px 20px; }
+    .hero-left    { width: 100%; padding: 0 20px; }
+    .case { grid-template-columns: 1fr; }
+    .pesquisa-grid { grid-template-columns: 1fr; }
+    .sobre-grid { grid-template-columns: 1fr; }
+    .sobre-right { order: -1; }
+    .sobre-photos { grid-template-columns: 1fr; }
+    .sobre-photo:first-child { grid-column: span 1; aspect-ratio: unset !important; }
+    .contact-email { font-size: 16px; word-break: break-all; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile-menu { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">CAROLINA ODDONE</a>
+    <ul class="nav-links">
+      <li><a href="#roteiro" data-pt="Roteiro" data-en="Screenplay" data-es="Guion">Roteiro</a></li>
+      <li><a href="#producao" data-pt="Produção" data-en="Production" data-es="Producción">Produção</a></li>
+      <li><a href="#pesquisa" data-pt="Pesquisa" data-en="Research" data-es="Investigación">Pesquisa</a></li>
+      <li><a href="#sobre" data-pt="Sobre" data-en="About" data-es="Acerca de">Sobre</a></li>
+      <li class="nav-lang-divider"></li>
+      <li class="nav-lang-group">
+        <a href="#" class="nav-lang active" data-lang="pt">PT</a>
+        <span class="nav-lang-dot">·</span>
+        <a href="#" class="nav-lang" data-lang="en">EN</a>
+        <span class="nav-lang-dot">·</span>
+        <a href="#" class="nav-lang" data-lang="es">ES</a>
+      </li>
+      <li><a href="mailto:carolina.oddone@gmail.com" class="nav-contact-cta" data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="nav-mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <ul class="nav-mobile-links">
+    <li><a href="#roteiro" data-pt="Roteiro" data-en="Screenplay" data-es="Guion">Roteiro</a></li>
+    <li><a href="#producao" data-pt="Produção" data-en="Production" data-es="Producción">Produção</a></li>
+    <li><a href="#pesquisa" data-pt="Pesquisa" data-en="Research" data-es="Investigación">Pesquisa</a></li>
+    <li><a href="#sobre" data-pt="Sobre" data-en="About" data-es="Acerca de">Sobre</a></li>
+  </ul>
+  <a href="mailto:carolina.oddone@gmail.com" class="nav-mobile-contact" data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</a>
+  <div class="nav-mobile-lang">
+    <a href="#" class="nav-lang active" data-lang="pt">PT</a>
+    <span>·</span>
+    <a href="#" class="nav-lang" data-lang="en">EN</a>
+    <span>·</span>
+    <a href="#" class="nav-lang" data-lang="es">ES</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="hero-bg"></div>
+  <div id="hero-overlay"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-in" data-pt="São Paulo, Brasil" data-en="São Paulo, Brazil" data-es="São Paulo, Brasil">São Paulo, Brasil</p>
+    <h1 class="hero-headline fade-in fade-in-delay-1"
+      data-pt="Histórias que<br>importam,<br>contadas com rigor."
+      data-en="Stories that<br>matter,<br>told with rigor."
+      data-es="Historias que<br>importan,<br>contadas con rigor.">Histórias que<br>importam,<br>contadas com rigor.</h1>
+    <p class="hero-sub fade-in fade-in-delay-2"
+      data-pt="Roteirista e produtora com mais de 16 anos de GloboNews, indicada ao Emmy Internacional de Jornalismo 2023, especializada em documentários e séries de não-ficção."
+      data-en="Screenwriter and producer with over 16 years at GloboNews, nominated for the 2023 International Emmy Award for Journalism, specializing in documentaries and non-fiction series."
+      data-es="Guionista y productora con más de 16 años en GloboNews, nominada al Emmy Internacional de Periodismo 2023, especializada en documentales y series de no ficción.">Roteirista e produtora com mais de 16 anos de GloboNews, indicada ao Emmy Internacional de Jornalismo 2023, especializada em documentários e séries de não-ficção.</p>
+    <a href="#roteiro" class="hero-cta fade-in fade-in-delay-3" data-pt="Ver portfólio" data-en="View portfolio" data-es="Ver portafolio">Ver portfólio</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVIÇOS -->
+<div class="services-wrap">
+  <h2 class="services-section-title" data-pt="Serviços" data-en="Services" data-es="Servicios">Serviços</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;color:var(--ink);">
+        <path d="M12 8 Q10 8 10 10 L10 38 Q10 40 12 40 L36 40 Q38 40 38 38 L38 14 L32 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M32 8 L32 14 L38 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <line x1="15" y1="19" x2="33" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="15" y1="24" x2="33" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="15" y1="29" x2="26" y2="29" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M29 33 Q33 28 36 26 Q38 25 37 27 Q35 30 31 36 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="service-title" data-pt="Roteiro" data-en="Screenplay" data-es="Guion">Roteiro</h3>
+      <p class="service-body"
+        data-pt="Do argumento à entrega final, roteiros para documentários, séries de não-ficção, vídeos institucionais e exposições."
+        data-en="From concept to final delivery, scripts for documentaries, non-fiction series, institutional videos, and exhibitions."
+        data-es="Del argumento a la entrega final, guiones para documentales, series de no ficción, videos institucionales y exposiciones.">Do argumento à entrega final, roteiros para documentários, séries de não-ficção, vídeos institucionais e exposições.</p>
+    </div>
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;color:var(--ink);">
+        <rect x="8" y="16" width="32" height="24" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+        <line x1="8" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M8 16 L14 8 L18 16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M17 16 L23 8 L27 16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M26 16 L32 8 L36 16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M19 30 L27 34 L19 38 Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <h3 class="service-title" data-pt="Produção" data-en="Production" data-es="Producción">Produção</h3>
+      <p class="service-body"
+        data-pt="Produção de documentários e reportagens. Experiência consolidada com equipes internacionais — logística, facilitação cultural e acesso a fontes. Fluente em inglês, espanhol e francês."
+        data-en="Documentary and news production. Extensive experience with international crews: logistics, cultural facilitation, and source access. Fluent in English, Spanish, and French."
+        data-es="Producción de documentales y reportajes. Amplia experiencia con equipos internacionales: logística, facilitación cultural y acceso a fuentes. Fluida en inglés, español y francés.">Produção de documentários e reportagens. Experiência consolidada com equipes internacionais — logística, facilitação cultural e acesso a fontes. Fluente em inglês, espanhol e francês.</p>
+    </div>
+
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:52px;height:52px;color:var(--ink);">
+        <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width="1.8"/>
+        <line x1="27.5" y1="27.5" x2="38" y2="38" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="15" y1="18" x2="25" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="15" y1="22" x2="23" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3 class="service-title" data-pt="Pesquisa" data-en="Research" data-es="Investigación">Pesquisa</h3>
+      <p class="service-body"
+        data-pt="Pesquisa de conteúdo para projetos audiovisuais e editoriais, combinando o senso de urgência do jornalismo com a atenção ao contexto e às fontes primárias da formação em História."
+        data-en="Content research for audiovisual and editorial projects, combining journalistic urgency with the attention to context and primary sources drawn from a background in History."
+        data-es="Investigación de contenidos para proyectos audiovisuales y editoriales, combinando la urgencia del periodismo con la atención al contexto y las fuentes primarias propias de la formación en Historia.">Pesquisa de conteúdo para projetos audiovisuais e editoriais, combinando o senso de urgência do jornalismo com a atenção ao contexto e às fontes primárias da formação em História.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ROTEIRO -->
+<section id="roteiro">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title" data-pt="Roteiro" data-en="Screenplay" data-es="Guion">Roteiro<span class="section-num">01</span></h2>
+    </div>
+
+    <div class="cases">
+
+      <!-- Case 1: Operação Transplante -->
+      <div class="case fade-in">
+        <div class="case-media">
+          <div class="case-video-wrap">
+            <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-04-30%20at%204.41.48%E2%80%AFPM.png" alt="Operação Transplante" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+          </div>
+        </div>
+        <div class="case-text">
+          <span class="case-tag" data-pt="Série documental" data-en="Documentary series" data-es="Serie documental">Série documental</span>
+          <p class="case-client">Mixer Films · Warner Bros. Discovery · Max</p>
+          <h3 class="case-title">Operação Transplante</h3>
+          <p class="case-body"
+            data-pt="Story Producer da série documental de 8 episódios que acompanha a luta contra o tempo das equipes médicas envolvidas no processo de doação e transplante de órgãos, além da rotina dos pacientes e familiares."
+            data-en="Story Producer of the 8-episode documentary series following the race against time of medical teams involved in organ donation and transplantation, alongside the daily lives of patients and their families."
+            data-es="Story Producer de la serie documental de 8 episodios que sigue la carrera contra el tiempo de los equipos médicos involucrados en el proceso de donación y trasplante de órganos, junto con la vida cotidiana de pacientes y familias.">Story Producer da série documental de 8 episódios que acompanha a luta contra o tempo das equipes médicas envolvidas no processo de doação e transplante de órgãos, além da rotina dos pacientes e familiares.</p>
+          <a class="case-link" href="https://vimeo.com/1054146764" target="_blank" rel="noopener" data-pt="Ver trailer →" data-en="Watch trailer →" data-es="Ver tráiler →">Ver trailer →</a>
+        </div>
+      </div>
+
+      <!-- Case 2: Retratos de uma guerra sem fim -->
+      <div class="case fade-in">
+        <div class="case-media">
+          <div class="case-video-wrap">
+            <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-05-01%20at%209.36.39%E2%80%AFAM.png" alt="Retratos de uma guerra sem fim" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+          </div>
+        </div>
+        <div class="case-text">
+          <span class="case-tag" data-pt="Série documental" data-en="Documentary series" data-es="Serie documental">Série documental</span>
+          <p class="case-client">GloboNews · GloboPlay</p>
+          <h3 class="case-title">Retratos de uma guerra sem fim</h3>
+          <p class="case-body"
+            data-pt="Roteirista e editora-executiva da primeira série documental feita pela GloboNews para o GloboPlay. Os 4 episódios mostram as transformações vividas pelas populações islâmicas desde os atentados terroristas de 11 de setembro de 2001. Coordenou a equipe de reportagem e edição e acompanhou as frentes de identidade visual, pesquisa de imagens, trilha sonora e tradução."
+            data-en="Screenwriter and executive editor of the first documentary series produced by GloboNews for GloboPlay. The 4 episodes explore how Muslim communities around the world have changed since the September 11 attacks. Led the reporting and editing team and oversaw visual identity, image research, soundtrack, and translation."
+            data-es="Guionista y editora ejecutiva de la primera serie documental producida por GloboNews para GloboPlay. Los 4 episodios retratan las transformaciones vividas por las comunidades islámicas desde los atentados del 11 de septiembre de 2001. Coordinó el equipo de reporteros y editores, y supervisó la identidad visual, la investigación de imágenes, la música y la traducción.">Roteirista e editora-executiva da primeira série documental feita pela GloboNews para o GloboPlay. Os 4 episódios mostram as transformações vividas pelas populações islâmicas desde os atentados terroristas de 11 de setembro de 2001. Coordenou a equipe de reportagem e edição e acompanhou as frentes de identidade visual, pesquisa de imagens, trilha sonora e tradução.</p>
+          <a class="case-link" href="https://globoplay.globo.com/retratos-de-uma-guerra-sem-fim/t/cFCy5j1hLw/" target="_blank" rel="noopener" data-pt="Ver vídeos →" data-en="Watch episodes →" data-es="Ver videos →">Ver vídeos →</a>
+        </div>
+      </div>
+
+      <!-- Case 3: Insper Cidades -->
+      <div class="case fade-in">
+        <div class="case-media">
+          <div class="case-video-wrap">
+            <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-05-01%20at%209.39.39%E2%80%AFAM.png" alt="Insper Cidades na Mobilidade" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+          </div>
+        </div>
+        <div class="case-text">
+          <span class="case-tag" data-pt="Série institucional" data-en="Institutional series" data-es="Serie institucional">Série institucional</span>
+          <p class="case-client">Insper Cidades · Motiva</p>
+          <h3 class="case-title">Insper Cidades na Mobilidade</h3>
+          <p class="case-body"
+            data-pt="Roteirista de dez episódios da série que propõe uma reflexão sobre o futuro das cidades e a urgência em torná-las mais sustentáveis. Temas como mobilidade ativa, mulheres e territórios e urbanismo social são tratados nos episódios disponíveis no YouTube do Insper."
+            data-en="Screenwriter of ten episodes of the series exploring the future of cities and the urgency of making them more sustainable. Topics including active mobility, women and urban space, and social urbanism are covered in episodes available on Insper's YouTube channel."
+            data-es="Guionista de diez episodios de la serie que propone una reflexión sobre el futuro de las ciudades y la urgencia de hacerlas más sostenibles. Temas como movilidad activa, mujeres y territorio y urbanismo social se abordan en los episodios disponibles en el canal de YouTube de Insper.">Roteirista de dez episódios da série que propõe uma reflexão sobre o futuro das cidades e a urgência em torná-las mais sustentáveis. Temas como mobilidade ativa, mulheres e territórios e urbanismo social são tratados nos episódios disponíveis no YouTube do Insper.</p>
+          <a class="case-link" href="https://www.youtube.com/watch?v=4EUVQCj2NZ8" target="_blank" rel="noopener" data-pt="Ver vídeo →" data-en="Watch video →" data-es="Ver video →">Ver vídeo →</a>
+        </div>
+      </div>
+
+      <!-- Case 4: Coronaceno -->
+      <div class="case fade-in" style="direction:rtl;">
+        <div class="case-media" style="direction:ltr;">
+          <div class="case-video-wrap">
+            <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-05-01%20at%209.45.13%E2%80%AFAM.png" alt="Coronaceno" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+          </div>
+        </div>
+        <div class="case-text" style="direction:ltr;">
+          <span class="case-tag" data-pt="Exposição multimídia" data-en="Multimedia exhibition" data-es="Exposición multimedia">Exposição multimídia</span>
+          <p class="case-client">Museu do Amanhã · Globo · GloboNews · Fiocruz</p>
+          <h3 class="case-title" data-pt="Coronaceno: reflexões em tempos de pandemia" data-en="Coronaceno: reflections in a time of pandemic" data-es="Coronaceno: reflexiones en tiempos de pandemia">Coronaceno: reflexões em tempos de pandemia</h3>
+          <p class="case-body"
+            data-pt="Roteirista dos vídeos da exposição multimídia exibida de março a agosto de 2021 no Museu do Amanhã. Nos cinco meses em cartaz, a exposição recebeu cerca de 55 mil visitantes de todas as idades e origens."
+            data-en="Screenwriter of the videos for the multimedia exhibition presented from March to August 2021 at the Museum of Tomorrow in Rio de Janeiro. Over its five months on display, the exhibition welcomed approximately 55,000 visitors of all ages and backgrounds."
+            data-es="Guionista de los videos de la exposición multimedia presentada de marzo a agosto de 2021 en el Museo del Mañana de Río de Janeiro. En sus cinco meses en cartelera, la exposición recibió cerca de 55.000 visitantes de todas las edades y procedencias.">Roteirista dos vídeos da exposição multimídia exibida de março a agosto de 2021 no Museu do Amanhã. Nos cinco meses em cartaz, a exposição recebeu cerca de 55 mil visitantes de todas as idades e origens.</p>
+          <a class="case-link" href="https://www.youtube.com/watch?v=X0NpGd6spBM&t=13s" target="_blank" rel="noopener" data-pt="Ver vídeo →" data-en="Watch video →" data-es="Ver video →">Ver vídeo →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUÇÃO -->
+<section id="producao">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title" data-pt="Produção" data-en="Production" data-es="Producción">Produção<span class="section-num">02</span></h2>
+    </div>
+
+    <div class="cases">
+
+      <!-- Prod 1: ARD -->
+      <div class="case fade-in">
+        <div class="case-media">
+          <div class="case-video-wrap">
+            <a href="https://www.ardmediathek.de/video/brasilien-botox-butt-lift-alles-fuer-die-schoenheit/trailer-brasilien-botox-butt-lift-alles-fuer-die-schoenheit/swr/Y3JpZDovL3N3ci5kZS9hZXgvbzIyOTQ4ODQ" target="_blank" rel="noopener" style="display:block;width:100%;height:100%;">
+              <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-05-01%20at%209.51.53%E2%80%AFAM.png" alt="Brasilien: Botox, Butt Lift" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            </a>
+          </div>
+        </div>
+        <div class="case-text">
+          <span class="case-tag" data-pt="Produção · Documentário" data-en="Production · Documentary" data-es="Producción · Documental">Produção · Documentário</span>
+          <p class="case-client">ARD (Alemanha)</p>
+          <h3 class="case-title">Brasilien: Botox, Butt Lift — Alles für die Schönheit</h3>
+          <p class="case-body"
+            data-pt="Produção para o documentário &quot;Brasil: Botox, lifting dos glúteos — Tudo pela beleza&quot;, exibido no programa Weltspiegel veiculado pela ARD, a maior rede pública de televisão da Alemanha. Ao longo de pouco mais de 40 minutos, a correspondente Xenia Böttcher investiga por que o Brasil lidera o ranking mundial de cirurgias plásticas."
+            data-en="Production for the documentary &quot;Brazil: Botox, Butt Lift — All for Beauty&quot;, aired on Weltspiegel, the flagship international affairs program of ARD, Germany's largest public broadcaster. In just over 40 minutes, correspondent Xenia Böttcher investigates why Brazil leads the world in cosmetic surgeries."
+            data-es="Producción del documental &quot;Brasil: Botox, lifting de glúteos — Todo por la belleza&quot;, emitido en el programa Weltspiegel de ARD, la mayor cadena pública de televisión de Alemania. En poco más de 40 minutos, la corresponsal Xenia Böttcher investiga por qué Brasil encabeza el ranking mundial de cirugías estéticas.">Produção para o documentário "Brasil: Botox, lifting dos glúteos — Tudo pela beleza", exibido no programa Weltspiegel veiculado pela ARD, a maior rede pública de televisão da Alemanha. Ao longo de pouco mais de 40 minutos, a correspondente Xenia Böttcher investiga por que o Brasil lidera o ranking mundial de cirurgias plásticas.</p>
+          <a class="case-link" href="https://www.ardmediathek.de/video/brasilien-botox-butt-lift-alles-fuer-die-schoenheit/trailer-brasilien-botox-butt-lift-alles-fuer-die-schoenheit/swr/Y3JpZDovL3N3ci5kZS9hZXgvbzIyOTQ4ODQ" target="_blank" rel="noopener" data-pt="Ver trailer →" data-en="Watch trailer →" data-es="Ver tráiler →">Ver trailer →</a>
+        </div>
+      </div>
+
+      <!-- Prod 2: CGTN -->
+      <div class="case fade-in">
+        <div class="case-media">
+          <div class="case-video-wrap">
+            <a href="https://news.cgtn.com/news/2023-09-12/VHJhbnNjcmlwdDc0NTU1/index.html" target="_blank" rel="noopener" style="display:block;width:100%;height:100%;">
+              <img src="https://ik.imagekit.io/rfi7kdlxzn/Screenshot%202026-05-01%20at%2010.00.15%E2%80%AFAM.png" alt="CGTN" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+            </a>
+          </div>
+        </div>
+        <div class="case-text">
+          <span class="case-tag" data-pt="Produção · Reportagem" data-en="Production · News" data-es="Producción · Reportaje">Produção · Reportagem</span>
+          <p class="case-client">CGTN (China)</p>
+          <h3 class="case-title">Belt and Road Initiative Turns 10</h3>
+          <p class="case-body"
+            data-pt="Produção de uma série de reportagens sobre a cultura brasileira exibida pela chinesa CGTN no contexto dos dez anos do projeto Nova Rota da Seda. A rede é o braço internacional da televisão estatal e transmite conteúdos em inglês, espanhol, francês, árabe e russo, com alcance estimado para mais de 100 países."
+            data-en="Production of a series of reports on Brazilian culture aired by China's CGTN marking the tenth anniversary of the Belt and Road Initiative. The network is the international arm of Chinese state television, broadcasting in English, Spanish, French, Arabic, and Russian to an estimated audience across more than 100 countries."
+            data-es="Producción de una serie de reportajes sobre la cultura brasileña emitida por CGTN en el contexto del décimo aniversario de la Nueva Ruta de la Seda. La cadena es el brazo internacional de la televisión estatal china y transmite contenidos en inglés, español, francés, árabe y ruso, con alcance estimado en más de 100 países.">Produção de uma série de reportagens sobre a cultura brasileira exibida pela chinesa CGTN no contexto dos dez anos do projeto Nova Rota da Seda. A rede é o braço internacional da televisão estatal e transmite conteúdos em inglês, espanhol, francês, árabe e russo, com alcance estimado para mais de 100 países.</p>
+          <a class="case-link" href="https://news.cgtn.com/news/2023-09-12/VHJhbnNjcmlwdDc0NTU1/index.html" target="_blank" rel="noopener" data-pt="Ver reportagem →" data-en="Watch report →" data-es="Ver reportaje →">Ver reportagem →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PESQUISA -->
+<section id="pesquisa">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title" data-pt="Pesquisa" data-en="Research" data-es="Investigación">Pesquisa<span class="section-num">03</span></h2>
+    </div>
+
+    <div class="pesquisa-grid">
+
+      <div class="pesquisa-card fade-in">
+        <div class="pesquisa-card-body">
+          <h3 class="pesquisa-card-title">Museu das Comunicações e Humanidades (Musehum)</h3>
+          <p class="pesquisa-card-text"
+            data-pt="Pesquisa de conteúdo para a instalação multilinguagem &quot;Futuros Plurais&quot; inaugurada em dezembro de 2024 no <a href=&quot;https://futuros.org.br/musehum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Musehum</a>. A vitrine apresenta áudios, vídeos, textos, imagens, jogos e atividades interativas — um convite para que os visitantes participem das discussões sobre o futuro da comunicação e o papel da tecnologia em suas vidas."
+            data-en="Content research for the multilingual installation &quot;Futuros Plurais&quot; inaugurated in December 2024 at the <a href=&quot;https://futuros.org.br/musehum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Musehum</a>. The showcase features audio, video, texts, images, games, and interactive activities inviting visitors to engage with discussions about the future of communication and the role of technology in their lives."
+            data-es="Investigación de contenidos para la instalación multilenguaje &quot;Futuros Plurais&quot; inaugurada en diciembre de 2024 en el <a href=&quot;https://futuros.org.br/musehum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Musehum</a>. La muestra integra audios, videos, textos, imágenes, juegos y actividades interactivas, invitando a los visitantes a participar en debates sobre el futuro de la comunicación y el papel de la tecnología en sus vidas.">Pesquisa de conteúdo para a instalação multilinguagem "Futuros Plurais" inaugurada em dezembro de 2024 no <a href="https://futuros.org.br/musehum/" target="_blank" rel="noopener">Musehum</a>. A vitrine apresenta áudios, vídeos, textos, imagens, jogos e atividades interativas — um convite para que os visitantes participem das discussões sobre o futuro da comunicação e o papel da tecnologia em suas vidas.</p>
+        </div>
+      </div>
+
+      <div class="pesquisa-card fade-in fade-in-delay-1">
+        <div class="pesquisa-card-body">
+          <h3 class="pesquisa-card-title">Memorial Ponte Rio-Niterói</h3>
+          <p class="pesquisa-card-text"
+            data-pt="Pesquisa de conteúdo e redação de textos da mostra &quot;Ponte Rio-Niterói: uma Ponte entre Histórias&quot;, organizada para celebrar os 50 anos da via. Inaugurada em abril de 2025, a <a href=&quot;https://memorialponterioniteroi.com.br/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>exposição</a> aborda aspectos históricos, técnicos, econômicos e sociais de uma obra que é considerada um marco da engenharia nacional."
+            data-en="Content research and text writing for the exhibition &quot;Rio-Niterói Bridge: A Bridge Between Stories&quot;, organized to mark the bridge's 50th anniversary. Inaugurated in April 2025, the <a href=&quot;https://memorialponterioniteroi.com.br/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>exhibition</a> explores the historical, technical, economic, and social dimensions of a structure considered a landmark of Brazilian engineering."
+            data-es="Investigación de contenidos y redacción de textos para la muestra &quot;Puente Rio-Niterói: un puente entre historias&quot;, organizada para celebrar los 50 años de la vía. Inaugurada en abril de 2025, la <a href=&quot;https://memorialponterioniteroi.com.br/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>exposición</a> aborda los aspectos históricos, técnicos, económicos y sociales de una obra considerada un hito de la ingeniería brasileña.">Pesquisa de conteúdo e redação de textos da mostra "Ponte Rio-Niterói: uma Ponte entre Histórias", organizada para celebrar os 50 anos da via. Inaugurada em abril de 2025, a <a href="https://memorialponterioniteroi.com.br/" target="_blank" rel="noopener">exposição</a> aborda aspectos históricos, técnicos, econômicos e sociais de uma obra que é considerada um marco da engenharia nacional.</p>
+        </div>
+      </div>
+
+      <div class="pesquisa-card fade-in fade-in-delay-2">
+        <div class="pesquisa-card-body">
+          <h3 class="pesquisa-card-title">Nature &amp; Climate House</h3>
+          <p class="pesquisa-card-text"
+            data-pt="Pesquisa de conteúdo e curadoria de palestrantes da primeira edição brasileira, em novembro de 2025. A Nature &amp; Climate House é uma iniciativa da <a href=&quot;https://www.bellwethersgroup.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Bellwethers Group</a>, um projeto global sem fins lucrativos dedicado a ampliar redes de líderes que estão construindo uma economia verde e resiliente às mudanças climáticas."
+            data-en="Content research and speaker curation for the first Brazilian edition, held in November 2025. Nature &amp; Climate House is an initiative of <a href=&quot;https://www.bellwethersgroup.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Bellwethers Group</a>, a global nonprofit dedicated to expanding networks of leaders building a green, climate-resilient economy."
+            data-es="Investigación de contenidos y curaduría de ponentes para la primera edición brasileña, celebrada en noviembre de 2025. Nature &amp; Climate House es una iniciativa de <a href=&quot;https://www.bellwethersgroup.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Bellwethers Group</a>, un proyecto global sin fines de lucro dedicado a ampliar las redes de líderes que están construyendo una economía verde y resiliente al cambio climático.">Pesquisa de conteúdo e curadoria de palestrantes da primeira edição brasileira, em novembro de 2025. A Nature &amp; Climate House é uma iniciativa da <a href="https://www.bellwethersgroup.org/" target="_blank" rel="noopener">Bellwethers Group</a>, um projeto global sem fins lucrativos dedicado a ampliar redes de líderes que estão construindo uma economia verde e resiliente às mudanças climáticas.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-wrap">
+    <div class="section-header">
+      <h2 class="section-title" data-pt="Sobre" data-en="About" data-es="Acerca de">Sobre<span class="section-num">04</span></h2>
+    </div>
+
+    <div class="sobre-grid">
+      <div>
+        <div class="sobre-bio">
+          <p data-pt="Carolina é roteirista especializada em documentários e séries de não-ficção."
+             data-en="Carolina is a screenwriter specializing in documentaries and non-fiction series."
+             data-es="Carolina es guionista especializada en documentales y series de no ficción.">Carolina é roteirista especializada em documentários e séries de não-ficção.</p>
+          <p data-pt="Ao longo de 16 anos, trabalhou na GloboNews — primeiro como produtora, depois como editora — onde passou a dominar todas as etapas necessárias para se contar uma boa história: da pesquisa de conteúdo e pitching ao roteiro e edição, pós-produção e entrega."
+             data-en="Over 16 years at GloboNews, first as a producer and later as an editor, she developed mastery of every stage involved in telling a compelling story: from content research and pitching to scripting, editing, post-production, and delivery."
+             data-es="Durante 16 años trabajó en GloboNews, primero como productora y luego como editora, donde desarrolló un dominio completo de todas las etapas necesarias para contar una buena historia: desde la investigación de contenidos y el pitching hasta el guion, la edición, la posproducción y la entrega final.">Ao longo de 16 anos, trabalhou na GloboNews — primeiro como produtora, depois como editora — onde passou a dominar todas as etapas necessárias para se contar uma boa história: da pesquisa de conteúdo e pitching ao roteiro e edição, pós-produção e entrega.</p>
+          <p data-pt="Especializou-se em grandes coberturas internacionais ao liderar, como editora-executiva, a equipe de repórteres e editores do <a href=&quot;https://g1.globo.com/globonews/sem-fronteiras/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Sem Fronteiras</a>. Veiculado até março de 2020, o programa semanal promovia o debate de temas de política e economia internacional. A qualidade do conteúdo produzido foi reconhecida por organizações de prestígio como o Comitê Internacional da Cruz Vermelha."
+             data-en="She specialized in major international coverage by leading, as executive editor, the team of reporters and editors at <a href=&quot;https://g1.globo.com/globonews/sem-fronteiras/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Sem Fronteiras</a>. The weekly program, which aired until March 2020, fostered debate on international politics and economics. The quality of its coverage was recognized by organizations including the International Committee of the Red Cross."
+             data-es="Se especializó en grandes coberturas internacionales al liderar, como editora ejecutiva, el equipo de reporteros y editores de <a href=&quot;https://g1.globo.com/globonews/sem-fronteiras/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Sem Fronteiras</a>. Emitido hasta marzo de 2020, el programa semanal promovía el debate de temas de política y economía internacional. La calidad del contenido producido fue reconocida por organizaciones de prestigio como el Comité Internacional de la Cruz Roja.">Especializou-se em grandes coberturas internacionais ao liderar, como editora-executiva, a equipe de repórteres e editores do <a href="https://g1.globo.com/globonews/sem-fronteiras/" target="_blank" rel="noopener">Sem Fronteiras</a>. Veiculado até março de 2020, o programa semanal promovia o debate de temas de política e economia internacional. A qualidade do conteúdo produzido foi reconhecida por organizações de prestígio como o Comitê Internacional da Cruz Vermelha.</p>
+          <p data-pt="Como produtora, integrou a equipe indicada ao Emmy Internacional de Jornalismo 2023 na categoria Atualidades pela produção do documentário &quot;<a href=&quot;https://globoplay.globo.com/abrigo-inocentes-sob-ataque/t/L1BCWXPyK6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Abrigo: inocentes sob ataque</a>&quot;. O documentário mostra os protagonistas quase sempre esquecidos de um conflito: aqueles que são gravemente feridos apesar de estarem longe dos campos de batalha."
+             data-en="As a producer, she was part of the team nominated for the 2023 International Emmy Award for Journalism in the Current Affairs category for the documentary &quot;<a href=&quot;https://globoplay.globo.com/abrigo-inocentes-sob-ataque/t/L1BCWXPyK6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Abrigo: inocentes sob ataque</a>&quot;. The film focuses on the most often forgotten protagonists of conflict: civilians who are gravely wounded despite being far from the battlefield."
+             data-es="Como productora, formó parte del equipo nominado al Emmy Internacional de Periodismo 2023 en la categoría Actualidades por el documental &quot;<a href=&quot;https://globoplay.globo.com/abrigo-inocentes-sob-ataque/t/L1BCWXPyK6/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>Abrigo: inocentes sob ataque</a>&quot;. El documental pone el foco en los protagonistas casi siempre olvidados de un conflicto: quienes resultan gravemente heridos a pesar de estar lejos de los campos de batalla.">Como produtora, integrou a equipe indicada ao Emmy Internacional de Jornalismo 2023 na categoria Atualidades pela produção do documentário "<a href="https://globoplay.globo.com/abrigo-inocentes-sob-ataque/t/L1BCWXPyK6/" target="_blank" rel="noopener">Abrigo: inocentes sob ataque</a>". O documentário mostra os protagonistas quase sempre esquecidos de um conflito: aqueles que são gravemente feridos apesar de estarem longe dos campos de batalha.</p>
+          <p data-pt="Hoje, assina roteiros e produções de documentários e reportagens - com ênfase em equipes estrangeiras - e atua como pesquisadora de conteúdo para projetos audiovisuais."
+             data-en="Today she writes scripts and produces documentaries and news features, with a particular focus on international crews, and works as a content researcher for audiovisual projects."
+             data-es="Hoy firma guiones y producciones de documentales y reportajes, con especial énfasis en equipos extranjeros, y trabaja como investigadora de contenidos para proyectos audiovisuales.">Hoje, assina roteiros e produções de documentários e reportagens - com ênfase em equipes estrangeiras - e atua como pesquisadora de conteúdo para projetos audiovisuais.</p>
+          <p data-pt="É formada em Jornalismo pela PUC-SP e em História pela USP. Fala português, inglês, espanhol e francês."
+             data-en="She holds degrees in Journalism from PUC-SP and History from USP. She speaks Portuguese, English, Spanish, and French."
+             data-es="Es licenciada en Periodismo por la PUC-SP y en Historia por la USP. Habla portugués, inglés, español y francés.">É formada em Jornalismo pela PUC-SP e em História pela USP. Fala português, inglês, espanhol e francês.</p>
+        </div>
+
+        <div class="contact-block">
+          <p class="contact-label" data-pt="Contato" data-en="Contact" data-es="Contacto">Contato</p>
+          <a class="contact-email" href="mailto:carolina.oddone@gmail.com">carolina.oddone@gmail.com</a>
+        </div>
+
+        <div class="sobre-awards">
+          <p class="sobre-awards-title" data-pt="Reconhecimento" data-en="Recognition" data-es="Reconocimientos">Reconhecimento</p>
+
+          <div class="award-row">
+            <p class="award-year">2023</p>
+            <p class="award-name" data-pt="Emmy Internacional de Jornalismo — indicada" data-en="International Emmy Award for Journalism — nominated" data-es="Emmy Internacional de Periodismo — nominada">Emmy Internacional de Jornalismo — indicada</p>
+            <p class="award-project" data-pt='Categoria "atualidades" · "Abrigo: inocentes sob ataque"' data-en='Category "Current Affairs" · "Abrigo: inocentes sob ataque"' data-es='Categoría "Actualidades" · "Abrigo: inocentes sob ataque"'>Categoria "atualidades" · "Abrigo: inocentes sob ataque"</p>
+          </div>
+
+          <div class="award-row">
+            <p class="award-year">2023</p>
+            <p class="award-name" data-pt="New York Festivals — Prata" data-en="New York Festivals — Silver" data-es="New York Festivals — Plata">New York Festivals — Prata</p>
+            <p class="award-project" data-pt='Categoria "atualidades" · "Abrigo: inocentes sob ataque"' data-en='Category "Current Affairs" · "Abrigo: inocentes sob ataque"' data-es='Categoría "Actualidades" · "Abrigo: inocentes sob ataque"'>Categoria "atualidades" · "Abrigo: inocentes sob ataque"</p>
+          </div>
+
+          <div class="award-row">
+            <p class="award-year">2020</p>
+            <p class="award-name" data-pt="Prêmio IMPA-SBM de Jornalismo" data-en="IMPA-SBM Journalism Award" data-es="Premio IMPA-SBM de Periodismo">Prêmio IMPA-SBM de Jornalismo</p>
+            <p class="award-project"
+              data-pt='Categoria "divulgação científica" · "Sem Fronteiras" sobre a primeira imagem de um buraco negro'
+              data-en='Category "Science Communication" · "Sem Fronteiras" on the first image of a black hole'
+              data-es='Categoría "Divulgación científica" · "Sem Fronteiras" sobre la primera imagen de un agujero negro'>Categoria "divulgação científica" · "Sem Fronteiras" sobre a primeira imagem de um buraco negro</p>
+          </div>
+
+          <div class="award-row">
+            <p class="award-year">2019</p>
+            <p class="award-name"
+              data-pt="Prêmio CICV de Cobertura Humanitária Internacional — 1º lugar"
+              data-en="ICRC Humanitarian Reporting Award — 1st place"
+              data-es="Premio CICR de Cobertura Humanitaria Internacional — 1.er lugar">Prêmio CICV de Cobertura Humanitária Internacional — 1º lugar</p>
+            <p class="award-project"
+              data-pt='"Sem Fronteiras" sobre o direito à nacionalidade e os apátridas'
+              data-en='"Sem Fronteiras" on the right to nationality and statelessness'
+              data-es='"Sem Fronteiras" sobre el derecho a la nacionalidad y los apátridas'>"Sem Fronteiras" sobre o direito à nacionalidade e os apátridas</p>
+          </div>
+
+          <div class="award-row">
+            <p class="award-year">2018</p>
+            <p class="award-name"
+              data-pt="Prêmio CICV de Cobertura Humanitária Internacional — 2º lugar"
+              data-en="ICRC Humanitarian Reporting Award — 2nd place"
+              data-es="Premio CICR de Cobertura Humanitaria Internacional — 2.º lugar">Prêmio CICV de Cobertura Humanitária Internacional — 2º lugar</p>
+            <p class="award-project"
+              data-pt='"Sem Fronteiras" sobre o povo Rohingya'
+              data-en='"Sem Fronteiras" on the Rohingya people'
+              data-es='"Sem Fronteiras" sobre el pueblo Rohingya'>"Sem Fronteiras" sobre o povo Rohingya</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sobre-right">
+        <div class="sobre-photos">
+          <div class="sobre-photo" style="aspect-ratio:16/9; grid-column:span 2; overflow:hidden; padding:0;">
+            <img src="https://ik.imagekit.io/rfi7kdlxzn/sobre_photo_1.jpg" alt="Carolina Oddone" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">CAROLINA ODDONE</span>
+  <span class="footer-copy" data-pt="Roteirista · Produtora · Pesquisadora" data-en="Screenwriter · Producer · Researcher" data-es="Guionista · Productora · Investigadora">Roteirista · Produtora · Pesquisadora</span>
+</footer>
+
+<script>
+  // Language switcher
+  let currentLang = 'pt';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-pt]').forEach(el => {
+      const text = el.getAttribute('data-' + lang) || el.getAttribute('data-pt');
+      if (text) el.innerHTML = text;
+    });
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es' : 'en';
+  }
+
+  document.querySelectorAll('.nav-lang').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      document.querySelectorAll('.nav-lang').forEach(l => {
+        l.classList.toggle('active', l.getAttribute('data-lang') === lang);
+      });
+      applyLang(lang);
+    });
+  });
+
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileMenu = document.getElementById('nav-mobile-menu');
+  let menuOpen = false;
+
+  function openMenu() {
+    menuOpen = true;
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollY + 'px';
+    document.body.style.width = '100%';
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open');
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    const scrollY = parseInt(document.body.style.top || '0') * -1;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.classList.remove('open');
+  }
+
+  hamburger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+
+  mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+  // Fade in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  faders.forEach(el => observer.observe(el));
+
+  // Trigger hero elements immediately
+  setTimeout(() => {
+    document.querySelectorAll('#hero .fade-in').forEach(el => el.classList.add('visible'));
+  }, 100);
+</script>
+</body>
+</html>
